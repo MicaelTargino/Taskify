@@ -13,14 +13,31 @@ The development of the Taskify is currently in progress. Feel free to check back
 
 ## Getting Started
 
-First, run the development server:
+## Getting Started
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/MicaelTargino/Taskify.git taskify
+
+2. cd into directory 
+
+   ```bash
+   cd taskify
+
+4. Install the requirements 
+
+   ```bash
+   npm install 
+
+5. run the development server:
+
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  # or
+  pnpm dev
+  ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
