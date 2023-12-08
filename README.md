@@ -7,6 +7,7 @@ Taskify is a Kanban SAAS built with Next.js14. It provides a seamless and intuit
 - **Next.js**: React framework for building server-rendered applications. [https://nextjs.org/](https://nextjs.org/)
 - **Tailwind CSS**: Utility-first CSS framework for styling. [https://tailwindcss.com/](https://tailwindcss.com/)
 - **Shadcn Ui**: Open-Source library with Pre-built and customizable components for the UI. [https://ui.shadcn.com/](https://ui.shadcn.com/)
+- **Clerk**: User management library that serves UI's and API's for authentication.  [https://clerk.com/](https://clerk.com/)
 - **Stripe**: A plug and play payment service for web apps.
 
   
