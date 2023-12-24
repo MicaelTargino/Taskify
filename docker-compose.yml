@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: taskify_db
+      MYSQL_USER: taskify_db_user
+      MYSQL_PASSWORD: taskify_db_pass
+    ports:
+      - "3306:3306"
