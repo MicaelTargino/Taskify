@@ -33,7 +33,17 @@ The development of the Taskify is currently in progress. Feel free to check back
    ```bash
    npm install 
 
-5. run the development server:
+5. Start the database server
+   ```bash
+   docker-compose up
+   ```
+
+6. Make sure the app is in sync with the database
+   ```bash
+   npx prisma db push
+   ```
+
+7. run the development server:
 
      ```bash
      npm run dev
@@ -43,4 +53,4 @@ The development of the Taskify is currently in progress. Feel free to check back
      pnpm dev
      ```
 
-6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+8. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
