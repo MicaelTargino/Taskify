@@ -32,7 +32,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   errors,
   className,
   defaultValue = "",
-  onBlur
+  onBlur,
 }, ref) => {
   const { pending } = useFormStatus();
 
