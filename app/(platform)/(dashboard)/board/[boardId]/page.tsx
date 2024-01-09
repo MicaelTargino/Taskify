@@ -37,10 +37,7 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
             <ListContainer
                 boardId={params.boardId}
                 data={lists}
-            >
-
-
-            </ListContainer>
+            />
         </div>
     )
 }
