@@ -5,11 +5,15 @@ import { ListWrapper } from "./ListWrapper"
 import { ElementRef, useRef, useState } from "react"
 import { useEventListener, useOnClickOutside } from "usehooks-ts"
 import { FormInput } from "@/components/form/form-input"
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import { FormSubmit } from "@/components/form/form-submit"
 import { Button } from "@/components/ui/button"
+import { useAction } from "@/hooks/use-action"
+import { createList } from "@/actions/create-list"
+import { toast } from "sonner"
 
 export const ListForm = () => {
+    const router = useRouter();
     const params = useParams();
     const [isEditing, setIsEditing] = useState(false);
     const formRef = useRef<ElementRef<"form">>(null);
@@ -26,10 +30,28 @@ export const ListForm = () => {
         setIsEditing(false);
     }
 
+    const {execute, fieldErrors} = useAction(createList, {
+        onSuccess: (data) => {
+            toast.success(`list "${data.title}" created`);
+            disableEditing();
+            router.refresh();
+        },
+        onError: (error) => toast.error(error)
+    })
+
     const onKeyDown = (event: KeyboardEvent) => {
         if (event.key == 'Escape') {
             disableEditing();
         }
+    }
+
+    const onSubmit = (formData:FormData) => {
+        const title = formData.get("title") as string;
+        const boardId = formData.get("boardId") as string;
+
+        execute({
+            title, boardId
+        })
     }
 
     useEventListener("keydown", onKeyDown);
@@ -38,8 +60,8 @@ export const ListForm = () => {
     if (isEditing) {
         return (
             <ListWrapper>
-                <form ref={formRef} className="w-full p-3 rounded-md bg-white space-y-4 shadow-md">
-                    <FormInput id="title" placeholder="Enter list title" ref={inputRef} className="text-sm py-1 px-2 h-7 font-medium border-transparent hover:border-input focus:border-input transition" />
+                <form action={onSubmit} ref={formRef} className="w-full p-3 rounded-md bg-white space-y-4 shadow-md">
+                    <FormInput errors={fieldErrors} id="title" placeholder="Enter list title" ref={inputRef} className="text-sm py-1 px-2 h-7 font-medium border-transparent hover:border-input focus:border-input transition" />
                     <input type="hidden" value={params.boardId} name="boardId"></input>
                     <div className="flex items-center gap-x-1">
                         <FormSubmit>
