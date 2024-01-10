@@ -11,6 +11,7 @@ import { useAction } from "@/hooks/use-action";
 import { deleteList } from "@/actions/delete-list";
 import { toast } from "sonner";
 import { ElementRef, useRef } from "react";
+import { copyList } from "@/actions/copy-list";
 
 interface ListOptionsProps {
     data: List;
@@ -27,12 +28,26 @@ export const ListOptions = ({data, onAddCard}: ListOptionsProps) => {
         },
         onError: (err) => toast.error(err)
     })
+    const {execute: executeCopy} = useAction(copyList, {
+        onSuccess: (data) => {
+            toast.success(`List ${data.title} copied`);
+            closeRef.current?.click();
+        },
+        onError: (err) => toast.error(err)
+    })
 
     const onDelete = (formData:FormData) => {
         const id = formData.get('id') as string;
         const boardId = formData.get('boardId') as string;
 
         executeDelete({id, boardId})
+    }
+
+    const onCopy = (formData:FormData) => {
+        const id = formData.get('id') as string;
+        const boardId = formData.get('boardId') as string;
+
+        executeCopy({id, boardId})
     }
     return (
         <Popover>
@@ -53,7 +68,7 @@ export const ListOptions = ({data, onAddCard}: ListOptionsProps) => {
             <Button onClick={onAddCard} variant="ghost" className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-neutral-600">
                     Add card...
             </Button>
-            <form>
+            <form action={onCopy}>
                 <input hidden name="id" id="id" value={data.id} />
                 <input hidden name="boardId" id="boardId" value={data.boardId} />
                 <FormSubmit variant="ghost" className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-neutral-600">
