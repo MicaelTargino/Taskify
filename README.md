@@ -23,8 +23,12 @@ The development of the Taskify is currently in progress. Feel free to check back
 - ✅ Unsplash API for random beautiful cover images
 - Activity log for entire organization
 - ✅ Board rename and delete
-- List creation
-- List rename, delete, drag & drop reorder and copy
+- ✅ List creation
+- ✅List rename
+- ✅List delete
+- List drag & drop
+- List reorder
+-✅ List copy
 - Card creation
 - Card description, rename, delete, drag & drop reorder and copy
 - Card activity log
