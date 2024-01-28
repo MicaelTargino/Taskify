@@ -38,6 +38,9 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
                 boardId={params.boardId}
                 data={lists}
             />
+            <div className="bg-red-500">
+                HELLO WORLD
+            </div>
         </div>
     )
 }

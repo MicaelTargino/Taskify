@@ -16,7 +16,8 @@ export const Logo = () => {
     return (
         <Link href="/">
             <div className="hover:opacity-75 items-center gap-x-2 hidden md:flex">
-                <Image src="/logo.svg" alt="Logo" height={30} width={30} />
+                <Image src="/logo.png" alt="Logo" height={30} width={30} />
+                {/* <Image src="/logo.svg" alt="Logo" height={30} width={30} /> */}
                 <p className={cn("text-lg font-bold text-neutral-700", LogoFont.className)}>
                     Taskify
                 </p>
