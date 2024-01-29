@@ -5,6 +5,14 @@
 html, body, :root {
   height: 100%;
 }
+
+.shadow-outline {
+  text-shadow:
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
  
 @layer base {
   :root {

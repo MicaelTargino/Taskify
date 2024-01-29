@@ -16,6 +16,12 @@ module.exports = {
       },
     },
     extend: {
+      textShadow: {
+          'outline': '-1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000',
+      },
+      textStroke: {
+        black: '10px black', 
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

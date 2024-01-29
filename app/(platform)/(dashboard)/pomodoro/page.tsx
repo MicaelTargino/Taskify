@@ -24,7 +24,6 @@ const PomodoroPage = () => {
    
     const searchParams = useSearchParams();
     const imgurl = searchParams.get('imgurl');
-    console.log(imgurl)
 
     const handleTickMute = (mute: boolean) => {
         setTickMute(mute);
@@ -188,27 +187,24 @@ const PomodoroPage = () => {
   }
 
     return (
-        <main className='pt-16 md:pt-16 h-full flex flex-col items-center justify-center bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${imgurl})`}}>
-                {!modalViewable && !settingsModalViewable && <h2 className='font-poppins text-slate-800 font-semibold text-xl'>Rounds: <span className='text-green-500 text-xl'>{rounds}</span></h2> }
-                <span className='flex items-center flex-col sm:flex-row justify-center gap-4 border mb-12 mt-2'>
-                    {/* {!modalViewable && <h1 className='text-purple-500 font-poppins font-thin tracking-wider text-4xl drop-shadow-lg'>Pomodoro</h1>} */}
-                    
+        <main className='relative pt-16 md:pt-16 h-full flex flex-col items-center justify-start bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${imgurl})`}}>
+
+                <span className='flex rounded-md items-center w-full relative flex-col sm:flex-row justify-center gap-4 mb-4 mt-2'>
+                {!modalViewable && !settingsModalViewable && <h2 className='font-poppins absolute top-0 left-8 text-slate-800 font-semibold bg-white px-4 py-2 rounded-md shadow-lg text-xl'>Rounds: <span className='text-green-500 text-xl'>{rounds}</span></h2> }
                     {!modalViewable &&  <nav className='flex flex-row items-center justify-center gap-0'>
                       {workDuration == (45 * 60) ? (
                         <>
-                        <button disabled={modalViewable} className='border-2 rounded-md rounded-tr-none rounded-br-none px-4 py-2 text-white bg-purple-500 border-purple-500'>45/15</button>
-                        {/* <button disabled={modalViewable} className='border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-purple-500 border-purple-500' onClick={() => changePomodoroCategory(50,10)}>50/10</button> */}
+                        <button disabled={modalViewable} className='shadow-lg border-2 rounded-md rounded-tr-none rounded-br-none px-4 py-2 text-white bg-sky-700 border-sky-700'>45/15</button> 
                         </>
                         ) : (
                       <>
-                      <button disabled={modalViewable} className='border-2 rounded-md rounded-tr-none rounded-br-none px-4 py-2 text-purple-500 drop-shadow-2xl border-purple-500' onClick={() => changePomodoroCategory(45,15)}>45/15</button>
-                      {/* <button disabled={modalViewable} className='border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-white border-purple-500 bg-purple-500 '>50/10</button> */}
+                      <button disabled={modalViewable} className='shadow-lg border-2 rounded-md rounded-tr-none rounded-br-none px-4 py-2 text-sky-700 drop-shadow-2xl bg-white border-sky-700' onClick={() => changePomodoroCategory(45,15)}>45/15</button>                     
                       </>
                       )}
                       {workDuration == (50 * 60) ? (
-                        <button disabled={modalViewable} className='border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-white border-purple-500 bg-purple-500 '>50/10</button> 
+                        <button disabled={modalViewable} className='shadow-lg border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-white border-sky-700 bg-sky-700 '>50/10</button> 
                       ) : (
-                        <button disabled={modalViewable} className='border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-purple-500 drop-shadow-2xl border-purple-500' onClick={() => changePomodoroCategory(50,10)}>50/10</button>
+                        <button disabled={modalViewable} className='shadow-lg border-2 rounded-md rounded-tl-none rounded-bl-none px-4 py-2 text-sky-700 bg-white drop-shadow-2xl border-sky-700' onClick={() => changePomodoroCategory(50,10)}>50/10</button>
                       )}
                       {/* {(workDuration != (45 * 60) && workDuration != (50 * 60) || settingsModalViewable) ? (
                         <button  disabled={modalViewable} onClick={() => setSettingsModalViewable((old) => !old)} className=' ml-2 border-2 rounded-md px-4 py-2 text-slate-200 border-purple-500 bg-purple-500 hover:bg-transparent hover:text-purple-500'> <Settings size={21} /> </button> 
@@ -218,11 +214,11 @@ const PomodoroPage = () => {
                     </nav>}
                 </span>
                 {!settingsModalViewable && (  
-                <section className='flex flex-col items-center justify-start gap-8'>
+                <section className='h-full flex flex-col items-center justify-center gap-8'>
                     <main className='flex flex-col items-center justify-center gap-6'>
                           { !modalViewable && (
                             <>
-                          <p className='relative z-10 text-8xl border-4 flex text-slate-700 flex-col items-center justify-center w-80 h-80 rounded-full'>
+                          <p className='shadow-outline relative z-10 -mt-6 text-9xl bg-transparent text-stroke-black drop-shadow-md text-zinc-100 flex-col items-center justify-center w-80 rounded-full'>
                             {/* {isWorking ? 'Work Time' : 'Break Time'}: */} 
                             <span className='relative z-10 flex flex-col items-center justify-center gap-0'>
                                {Math.floor(timeLeft / 60).toString().padStart(2, '0')}:{(timeLeft % 60).toString().padStart(2, '0')}
@@ -239,7 +235,7 @@ const PomodoroPage = () => {
                           </span>
                           </>
                           ) }
-                         </main>
+                      </main>
                 </section>
                 )}
         </main>
