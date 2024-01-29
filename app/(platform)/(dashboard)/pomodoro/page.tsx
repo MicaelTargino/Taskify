@@ -1,6 +1,6 @@
 "use client"
 
-import { Settings } from "lucide-react";
+import { History, Pause, Play, Settings, SkipBack, SkipForward, TimerReset } from "lucide-react";
 import {useState, useRef, useEffect} from "react";
 import { cn } from "@/lib/utils";
 import { useSearchParams } from 'next/navigation'
@@ -165,8 +165,12 @@ const PomodoroPage = () => {
   };
 
   const resetTimer = () => {
-    setIsWorking(true);
-    setTimeLeft(workDuration);
+    // setIsWorking(true);
+    if (isWorking == true) {
+      setTimeLeft(workDuration);
+    } else {
+      setTimeLeft(breakDuration)
+    }
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
@@ -224,14 +228,16 @@ const PomodoroPage = () => {
                                {Math.floor(timeLeft / 60).toString().padStart(2, '0')}:{(timeLeft % 60).toString().padStart(2, '0')}
                                <span style={{ width: 2 * percentage + 'px' }} className="h-4 bg-purple-500 rounded-md"></span>
                             </span>
-                            {(timeLeft != workDuration || rounds != 0 ) && <button className=' px-3 py-1 rounded-md shadow-md drop-shadow-2xl text-lg absolute bottom-6 left-[50%] -translate-x-[50%] text-slate-200 bg-green-500' onClick={finish}>Finish</button>}
+                            {/* {(timeLeft != workDuration || rounds != 0 ) && <button className=' px-3 py-1 rounded-md shadow-md drop-shadow-2xl text-lg absolute bottom-6 left-[50%] -translate-x-[50%] text-slate-200 bg-green-500' onClick={finish}>Finish</button>} */}
                            </p>
                           <span className='flex items-center justify-center gap-2'>
-                            {isRunning && <button className='px-6 py-2 rounded-md shadow-md border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white hover:drop-shadow-xl' onClick={jumpRound}>Jump</button>}
-                            <button onClick={isRunning ? pauseTimer : startTimer} className={isRunning ?'hover:bg-green-500 hover:text-zinc-200  border-2 border-green-500 text-green-500 px-6 py-2 rounded-md shadow-md'  : 'hover:border-2 hover:border-green-500 hover:text-green-500 hover:bg-transparent bg-green-500 text-zinc-200 px-6 py-2 rounded-md shadow-md'}> 
-                              {isRunning ? 'Pause' : 'Start'}
+                          {isRunning && <button className='px-6 py-2 rounded-md shadow-md bg-slate-700 text-white hover:drop-shadow-xl' onClick={() => {resetTimer(); startTimer()}}><SkipBack /></button>}  
+
+                            <button onClick={isRunning ? pauseTimer : startTimer} className={isRunning ?'border-2 border-green-500 text-green-500 px-6 py-2 rounded-md shadow-md'  : ' bg-green-500 text-zinc-200 px-6 py-2 rounded-md shadow-md'}> 
+                              {isRunning ? <Pause /> 
+                               : <Play />}
                             </button>
-                            {isRunning && <button className='px-6 py-2 rounded-md shadow-md border-2 border-slate-400 text-slate-400 hover:bg-slate-400 hover:text-white hover:drop-shadow-xl' onClick={() => {resetTimer(); startTimer()}}>Reset</button>}  
+                               {isRunning && <button className='px-6 py-2 rounded-md shadow-md  bg-sky-700 text-white hover:drop-shadow-xl' onClick={jumpRound}><SkipForward /></button>}
                           </span>
                           </>
                           ) }
