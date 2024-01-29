@@ -52,7 +52,7 @@ const BoardIdLayout = async ({children, params}: {children:React.ReactNode, para
             <main className="relative pt-28 h-full">
                 {children}
             </main>
-            <PomodoroTriggerButton url={board.imageFullUrl} />
+            <PomodoroTriggerButton boardId={board.id} />
         </div>
     )
 }

@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation'
  
 
 
-const PomodoroPage = () => {
+const Pomodoro = ({url}: {url:string}) => {
     const [workDuration, setWorkDuration] = useState<number>(45 * 60); // 25 minutes in seconds
     const [breakDuration, setBreakDuration] = useState<number>(15 * 60); // 5 minutes in seconds
     const [timeLeft, setTimeLeft] = useState<number>(workDuration);
@@ -191,7 +191,7 @@ const PomodoroPage = () => {
   }
 
     return (
-        <main className='relative pt-16 md:pt-16 h-full flex flex-col items-center justify-start bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${imgurl})`}}>
+        <main className='relative pt-16 md:pt-16 h-full flex flex-col items-center justify-start bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${url})`}}>
 
                 <span className='flex rounded-md items-center w-full relative flex-col sm:flex-row justify-center gap-4 mb-4 mt-2'>
                 {!modalViewable && !settingsModalViewable && <h2 className='font-poppins absolute top-0 left-8 text-slate-800 font-semibold bg-white px-4 py-2 rounded-md shadow-lg text-xl'>Rounds: <span className='text-green-500 text-xl'>{rounds}</span></h2> }
@@ -247,4 +247,4 @@ const PomodoroPage = () => {
         </main>
     )}
 
-export default PomodoroPage
+export default Pomodoro
