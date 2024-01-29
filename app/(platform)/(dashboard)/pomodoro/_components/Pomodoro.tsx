@@ -233,7 +233,7 @@ const Pomodoro = ({url}: {url:string}) => {
                           <span className='flex items-center justify-center gap-2'>
                           {isRunning && <button className='px-6 py-2 rounded-md shadow-md bg-slate-700 text-white hover:drop-shadow-xl' onClick={() => {resetTimer(); startTimer()}}><SkipBack /></button>}  
 
-                            <button onClick={isRunning ? pauseTimer : startTimer} className={isRunning ?'border-2 border-green-500 text-green-500 px-6 py-2 rounded-md shadow-md'  : ' bg-green-500 text-zinc-200 px-6 py-2 rounded-md shadow-md'}> 
+                            <button onClick={isRunning ? pauseTimer : startTimer} className={isRunning ?' bg-green-500 text-white px-6 py-2 rounded-md shadow-md'  : ' bg-green-500 text-zinc-200 px-6 py-2 rounded-md shadow-md'}> 
                               {isRunning ? <Pause /> 
                                : <Play />}
                             </button>
