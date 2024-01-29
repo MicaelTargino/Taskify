@@ -2,6 +2,10 @@
 
 import { Settings } from "lucide-react";
 import {useState, useRef, useEffect} from "react";
+import { cn } from "@/lib/utils";
+import { useSearchParams } from 'next/navigation'
+ 
+
 
 const PomodoroPage = () => {
     const [workDuration, setWorkDuration] = useState<number>(45 * 60); // 25 minutes in seconds
@@ -17,7 +21,11 @@ const PomodoroPage = () => {
     const [tickMute, setTickMute] = useState(false);
     const [alertMute, setAlertMute] = useState(false);
 
-    
+   
+    const searchParams = useSearchParams();
+    const imgurl = searchParams.get('imgurl');
+    console.log(imgurl)
+
     const handleTickMute = (mute: boolean) => {
         setTickMute(mute);
     } 
@@ -179,9 +187,8 @@ const PomodoroPage = () => {
     setTimeLeft(workTime * 60);
   }
 
-
     return (
-        <main className='pt-16 md:pt-16 flex flex-col items-center justify-center'>
+        <main className='pt-16 md:pt-16 h-full flex flex-col items-center justify-center bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${imgurl})`}}>
                 {!modalViewable && !settingsModalViewable && <h2 className='font-poppins text-slate-800 font-semibold text-xl'>Rounds: <span className='text-green-500 text-xl'>{rounds}</span></h2> }
                 <span className='flex items-center flex-col sm:flex-row justify-center gap-4 border mb-12 mt-2'>
                     {/* {!modalViewable && <h1 className='text-purple-500 font-poppins font-thin tracking-wider text-4xl drop-shadow-lg'>Pomodoro</h1>} */}
