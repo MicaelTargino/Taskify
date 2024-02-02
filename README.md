@@ -21,23 +21,25 @@ The development of the Taskify is currently in progress. Feel free to check back
 - ✅ Organizations / Workspaces
 - ✅ Board creation
 - ✅ Unsplash API for random beautiful cover images
-- Activity log for entire organization
 - ✅ Board rename and delete
 - ✅ List creation
-- ✅List rename
-- ✅List delete
-- List drag & drop
-- List reorder
--✅ List copy
-- Card creation
-- Card description, rename, delete, drag & drop reorder and copy
-- Card activity log
-- Board limit for every organization
-- Stripe subscription for each organization to unlock unlimited boards
+- ✅ List rename
+- ✅ List delete
+- ✅ List drag & drop
+- ✅ List reorder
+- ✅ List copy
+- ✅ Card creation
+- ✅ Card description, rename, delete, drag & drop reorder and copy
 - ✅ Landing page
 - ✅ MySQL DB
 - ✅ Prisma ORM
-- ✅shadcnUI & TailwindCSS
+- ✅ shadcnUI & TailwindCSS
+- ✅ Pomodoro
+- assign collaborators to workspaces
+- add deadline to tasks
+- Card activity log
+- Board limit for every organization
+- Stripe subscription for each organization to unlock unlimited boards
 
 ## Getting Started
 
