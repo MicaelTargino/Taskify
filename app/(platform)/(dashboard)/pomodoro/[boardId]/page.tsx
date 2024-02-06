@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import Pomodoro from "../_components/Pomodoro"
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
+import { BoardTriggerButton } from "../../board/[boardId]/_components/CardTriggerButton";
 
 
 interface BoardIdPageProps {
@@ -29,7 +30,11 @@ const PomodoroPage = async ({ params }: BoardIdPageProps) => {
   console.log(board)
   
   return (
+    <>
     <Pomodoro url={board?.imageFullUrl || ''}  />
+    <BoardTriggerButton boardId={boardId} />
+    </>
+
   )
 }
 

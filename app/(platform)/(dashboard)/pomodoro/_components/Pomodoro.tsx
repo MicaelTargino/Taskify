@@ -104,6 +104,7 @@ const Pomodoro = ({ url }: {url: string}) => {
   }
 
     return (
+      <>
         <main className='relative pt-16 md:pt-16 h-full flex flex-col items-center justify-start bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${url})`}}>
 
                 <span className='flex rounded-md items-center w-full relative flex-col sm:flex-row justify-center gap-4 mb-4 mt-2'>
@@ -147,6 +148,8 @@ const Pomodoro = ({ url }: {url: string}) => {
                       </main>
                 </section>
         </main>
+      
+      </>
     )}
 
 export default Pomodoro
