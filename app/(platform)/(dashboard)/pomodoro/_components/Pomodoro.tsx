@@ -28,6 +28,9 @@ const Pomodoro = ({ url }: {url: string}) => {
             toggleWorkBreak();
             playAudio('done');
         }
+        if (timeLeft >= 1 && timeLeft <= 5) {
+          playAudio('tick')
+        }
     }, [timeLeft]);
 
     // Define a type guard for the Timeout object specific to Node.js
