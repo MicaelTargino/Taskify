@@ -33,7 +33,6 @@ const Pomodoro = ({ url }: {url: string}) => {
         }
     }, [timeLeft]);
 
-    // Define a type guard for the Timeout object specific to Node.js
     function isTimeout(value: TimeoutRef): value is NodeJS.Timeout {
       return typeof value === 'object' && value !== null;
     }

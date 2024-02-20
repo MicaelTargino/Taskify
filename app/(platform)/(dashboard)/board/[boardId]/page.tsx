@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth, useOrganizationList } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { ListContainer } from "./_components/ListContainer";
