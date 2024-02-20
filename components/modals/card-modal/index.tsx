@@ -16,36 +16,7 @@ import { User } from "lucide-react";
 
 import * as React from "react"
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-
-export function SelectUser({list}: {list:any}) {
-  list.forEach((user: any) => console.log(user));
-  return (
-    <Select>
-      <SelectTrigger className="w-[180px] h-8">
-        <SelectValue placeholder="Select a user" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Users</SelectLabel>
-          {list.map((user:any) => (
-          <SelectItem value={user.publicUserData.identifier}>
-            {user.publicUserData.firstName && user.publicUserData.lastName ? `${user.publicUserData.firstName} ${user.publicUserData.lastName}`: user.publicUserData.identifier}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-  )
-}
+import { AssignUser } from "./assignuser";
 
 
 export const CardModal = () => {
@@ -86,15 +57,9 @@ export const CardModal = () => {
         {isAdmin && (
           <>
             {!cardData
-              ? <Header.Skeleton />
-              :
-            <div className="w-full flex items-center justify-start gap-1">
-              <User className="w-5 h-5 text-neutral-700" />
-              <p className="font-semibold text-neutral-700">
-                  Assign User
-              </p>
-              <SelectUser list={membershipList} />
-            </div>
+              ? <AssignUser.Skeleton />
+              : <AssignUser membershipList={membershipList} />
+
             }
           </>
         )}
