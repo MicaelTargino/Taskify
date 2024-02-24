@@ -43,6 +43,7 @@ model Card {
   order Int
   description String? @db.Text
   listId String
+  assignedUserId String @default("")
   list List  @relation(fields: [listId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

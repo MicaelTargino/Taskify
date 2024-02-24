@@ -58,7 +58,7 @@ export const CardModal = () => {
           <>
             {!cardData
               ? <AssignUser.Skeleton />
-              : <AssignUser membershipList={membershipList} />
+              : <AssignUser cardId={id || ''} membershipList={membershipList} />
 
             }
           </>
