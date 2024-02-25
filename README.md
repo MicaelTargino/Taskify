@@ -35,11 +35,8 @@ The development of the Taskify is currently in progress. Feel free to check back
 - ✅ Prisma ORM
 - ✅ shadcnUI & TailwindCSS
 - ✅ Pomodoro
-- assign collaborators to workspaces
-- add deadline to tasks
-- Card activity log
-- Board limit for every organization
-- Stripe subscription for each organization to unlock unlimited boards
+- ✅ Assign collaborators to workspaces
+- Add deadline to tasks
 
 ## Getting Started
 
