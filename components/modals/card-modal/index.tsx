@@ -44,10 +44,7 @@ export const CardModal = () => {
     return null;
   }
 
- 
   const isAdmin = membership?.role === "admin";
-
-  console.log(cardData)
 
   return (
     <Dialog
@@ -64,7 +61,6 @@ export const CardModal = () => {
             {!cardData
               ? <AssignUser.Skeleton />
               : <AssignUser assignedUserId={cardData?.assignedUserId} cardId={id || ''} membershipList={membershipList} />
-
             }
           </>
         )}
