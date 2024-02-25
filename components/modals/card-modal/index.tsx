@@ -44,6 +44,8 @@ export const CardModal = () => {
  
   const isAdmin = membership?.role === "admin";
 
+  console.log(cardData)
+
   return (
     <Dialog
       open={isOpen}
@@ -58,7 +60,7 @@ export const CardModal = () => {
           <>
             {!cardData
               ? <AssignUser.Skeleton />
-              : <AssignUser cardId={id || ''} membershipList={membershipList} />
+              : <AssignUser assignedUserId={cardData?.assignedUserId} cardId={id || ''} membershipList={membershipList} />
 
             }
           </>
