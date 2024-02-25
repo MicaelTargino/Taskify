@@ -38,7 +38,7 @@ export function SelectUser({assignedUserId, cardId,list}: {assignedUserId: any,c
           <SelectGroup>
             <SelectLabel>Users</SelectLabel>
             {list.map((user:any) => (
-            <SelectItem  value={user.publicUserData.userId}>
+            <SelectItem key={user.publicUserData.id} value={user.publicUserData.userId}>
               {user.publicUserData.firstName && user.publicUserData.lastName ? `${user.publicUserData.firstName} ${user.publicUserData.lastName}`: user.publicUserData.identifier}
               </SelectItem>
             ))}

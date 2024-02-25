@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { useOrganization } from "@clerk/nextjs";
+import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 
 import { CardWithList } from "@/types";
 import { fetcher } from "@/lib/fetcher";
@@ -32,15 +32,18 @@ export const CardModal = () => {
   const {
     organization: currentOrganization,
     membership,
+    memberships,
     isLoaded,
-    membershipList
   } = useOrganization({
-    membershipList: {},
+    memberships: {},
   });
- 
+
+  const membershipList = memberships?.data
+  
   if (!isLoaded || !currentOrganization) {
     return null;
   }
+
  
   const isAdmin = membership?.role === "admin";
 
