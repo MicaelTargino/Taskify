@@ -8,6 +8,7 @@ import { ListWithCards } from "@/types";
 import { CardForm } from "./CardForm";
 import { CardItem } from "./CardItem";
 import { ListHeader } from "./ListHeader";
+import { useOrganization } from "@clerk/nextjs";
 interface ListItemProps {
   data: ListWithCards;
   index: number;
@@ -27,6 +28,17 @@ export const ListItem = ({
       textareaRef.current?.focus();
     });
   };
+
+  const {
+    organization: currentOrganization,
+    membership,
+    memberships,
+    isLoaded,
+  } = useOrganization({
+    memberships: {},
+  });
+
+  const membershipList = memberships?.data
 
   return (
     <Draggable draggableId={data.id} index={index}>
@@ -56,6 +68,7 @@ export const ListItem = ({
                 >
                   {data.cards.map((card, index) => (
                     <CardItem
+                      membershipList={membershipList}
                       index={index}
                       key={card.id}
                       data={card}

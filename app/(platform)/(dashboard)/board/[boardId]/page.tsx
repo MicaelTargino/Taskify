@@ -1,4 +1,4 @@
-import { auth, useOrganizationList } from "@clerk/nextjs";
+import { auth, useOrganization } from "@clerk/nextjs";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { ListContainer } from "./_components/ListContainer";
@@ -33,6 +33,9 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
             order: "asc"
         }
     })
+
+
+
     return (
         <div className="p-4 h-[100%] overflow-x-auto">
             <ListContainer

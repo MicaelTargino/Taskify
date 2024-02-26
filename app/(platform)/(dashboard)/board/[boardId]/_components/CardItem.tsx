@@ -8,25 +8,16 @@ import { useOrganization } from "@clerk/nextjs";
 import Image from "next/image";
 
 interface CardItemProps {
+  membershipList: any,
   data: Card;
   index: number;
 };
 export const CardItem = ({
+  membershipList,
   data,
   index,
 }: CardItemProps) => {
   const cardModal = useCardModal();
-
-  const {
-    organization: currentOrganization,
-    membership,
-    memberships,
-    isLoaded,
-  } = useOrganization({
-    memberships: {},
-  });
-
-  const membershipList = memberships?.data
 
   return (
     <Draggable draggableId={data.id} index={index}>
@@ -41,7 +32,7 @@ export const CardItem = ({
         >
           {data.title}
 
-          {membershipList?.map((user) => {
+          {membershipList?.map((user:any) => {
             console.log(user)
             if (user.publicUserData.userId == data.assignedUserId) {
               return (
