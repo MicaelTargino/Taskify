@@ -14,10 +14,11 @@ import { CalendarClock, User } from "lucide-react";
 export const SelectDeadline = () => {
     const [date, setDate] = React.useState<Date | undefined>(new Date())
 
-    React.useEffect(()=> {
-      console.log(date)
-    }, [date])
-    
+    const onSubmit = (newDate: any) => {
+        // fetch api to assign
+        setDate(newDate);
+    }
+
     return (
         <div className="w-full flex flex-col items-start justify-start gap-1">
             <Accordion type="single" collapsible>
@@ -32,7 +33,7 @@ export const SelectDeadline = () => {
                     <Calendar
                     mode="single"
                     selected={date}
-                    onSelect={setDate}
+                    onSelect={onSubmit}
                     className="rounded-md border shadow"
                     />
                 </AccordionContent>
