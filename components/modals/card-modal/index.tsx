@@ -70,7 +70,7 @@ export const CardModal = () => {
           {!cardData
           ? <AssignUser.Skeleton />
           : 
-            <SelectDeadline />
+            <SelectDeadline cardData={cardData} />
           }
           </>
         )}

@@ -9,14 +9,30 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { CalendarClock, User } from "lucide-react";
+import { toast } from "sonner";
 
 
-export const SelectDeadline = () => {
-    const [date, setDate] = React.useState<Date | undefined>(new Date())
+export const SelectDeadline = ({cardData}: any) => {
+    const [date, setDate] = React.useState<Date | undefined>(new Date(cardData.deadline) || new Date());
 
     const onSubmit = (newDate: any) => {
-        // fetch api to assign
         setDate(newDate);
+        // fetch api to assign
+        fetch('http://localhost:3000/api/setDeadline/' + cardData.id, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'deadline': newDate.toDateString()
+            })
+        })
+        .then(response => {
+            if (response.status == 200) {
+                toast.success(`Deadline assigned`);
+            }
+        })
+        .catch(error => console.error('Error:', error));
     }
 
     return (
