@@ -45,6 +45,7 @@ model Card {
   listId String
   assignedUserId String @default("")
   list List  @relation(fields: [listId], references: [id], onDelete: Cascade)
+  deadline DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   @@index([listId])

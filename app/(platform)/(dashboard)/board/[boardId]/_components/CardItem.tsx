@@ -33,7 +33,6 @@ export const CardItem = ({
           {data.title}
 
           {membershipList?.map((user:any) => {
-            console.log(user)
             if (user.publicUserData.userId == data.assignedUserId) {
               return (
                 <div className="w-[36px] h-[36px] rounded-full overflow-hidden">
