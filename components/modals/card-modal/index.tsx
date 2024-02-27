@@ -18,8 +18,13 @@ import * as React from "react"
 
 import { AssignUser } from "./assignuser";
 import { Calendar } from "@/components/ui/calendar";
-import { CalendarForm } from "./_components/selectDate";
 import { Switch } from "@/components/ui/switch";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 
 export const CardModal = () => {
@@ -27,13 +32,8 @@ export const CardModal = () => {
   const isOpen = useCardModal((state) => state.isOpen);
   const onClose = useCardModal((state) => state.onClose);
 
-  const [showDeadline, setShowDeadline] = React.useState(false);
-
   const [date, setDate] = React.useState<Date | undefined>(new Date())
 
-  React.useEffect(()=> {
-    console.log(showDeadline)
-  }, [showDeadline])
   React.useEffect(()=> {
     console.log(date)
   }, [date])
@@ -84,18 +84,24 @@ export const CardModal = () => {
           ? <AssignUser.Skeleton />
           : 
           <div className="w-full flex flex-col items-start justify-start gap-1">
-                <p className="flex items-center justify-start gap-1 font-semibold text-neutral-700">
+                <Accordion type="single" collapsible>
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="hover:no-underline">
+                  <p className="flex items-center justify-start gap-1 font-semibold text-neutral-700">
                   <CalendarClock className="w-5 h-5 text-neutral-700" />
-                  <span>Deadline</span> <Switch checked={showDeadline} onCheckedChange={setShowDeadline} />
+                  <span className="mr-2">Deadline</span> 
                 </p>
-                {showDeadline && (
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    className="rounded-md border shadow"
-                  />
-                )}
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      className="rounded-md border shadow"
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
           </div>
           }
           </>
