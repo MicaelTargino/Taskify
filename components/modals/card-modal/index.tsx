@@ -30,6 +30,8 @@ export const CardModal = () => {
     queryFn: () => fetcher(`/api/cards/${id}`),
   });
 
+  console.log(cardData?.deadline)
+
   const {
     organization: currentOrganization,
     membership,
