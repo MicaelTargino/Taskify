@@ -16,7 +16,6 @@ import { CardWithList } from "@/types";
 
 
 export const SelectDeadline = ({cardData}: any) => {
-
     const [date, setDate] = React.useState<Date | undefined>(new Date(cardData.deadline) || new Date());
 
     useEffect(() => {
@@ -24,10 +23,6 @@ export const SelectDeadline = ({cardData}: any) => {
             setDate(new Date(cardData.deadline))
         }
     }, [cardData?.deadline])
-    
-    console.log(cardData?.deadline)
-
-    console.log(date)
 
     const onSubmit = (newDate: any) => {
         setDate(newDate);

@@ -6,6 +6,7 @@ import { Draggable } from "@hello-pangea/dnd";
 import { useCardModal } from "@/hooks/use-card-modal";
 import { useOrganization } from "@clerk/nextjs";
 import Image from "next/image";
+import { CalendarClock } from "lucide-react";
 
 interface CardItemProps {
   membershipList: any,
@@ -19,6 +20,17 @@ export const CardItem = ({
 }: CardItemProps) => {
   const cardModal = useCardModal();
 
+  const CalendarClasses = () => {
+    if (new Date(data?.deadline || '').getDate() > new Date().getDate()) {
+      return 'w-5 h-5 text-green-500'
+    } else if (new Date(data?.deadline || '').getDate() == new Date().getDate()) {
+      return 'w-5 h-5 text-yellow-500'
+    }
+    else {
+      return 'w-5 h-5 text-red-500'
+    }
+  }
+
   return (
     <Draggable draggableId={data.id} index={index}>
       {(provided) => (
@@ -30,7 +42,16 @@ export const CardItem = ({
           onClick={() => cardModal.onOpen(data.id)}
           className="flex items-center justify-between truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
         >
+          <span className="flex items-center gap-1">
+          <CalendarClock className={CalendarClasses()} />
+
           {data.title}
+          </span>
+
+
+          {/* {data.deadline && (
+            <span>{data.deadline.toLocaleDateString('en-GB')}</span>
+          )} */}
 
           {membershipList?.map((user:any) => {
             if (user.publicUserData.userId == data.assignedUserId) {
