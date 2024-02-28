@@ -36,7 +36,7 @@ The development of the Taskify is currently in progress. Feel free to check back
 - ✅ shadcnUI & TailwindCSS
 - ✅ Pomodoro
 - ✅ Assign collaborators to workspaces
-- Add deadline to tasks
+- ✅ Add deadline to tasks
 
 ## Getting Started
 
