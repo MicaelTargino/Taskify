@@ -1,6 +1,6 @@
 # Taskify
 
-Taskify is a Kanban SAAS built with Next.js14. It provides a seamless and intuitive experience for managing tasks.
+Taskify is a Task Management App built with Next.js14. It provides a seamless and intuitive experience for managing tasks and collaborating with your team.
 
 ## Technologies Used
 
