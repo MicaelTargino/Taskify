@@ -16,7 +16,7 @@ Taskify is a Kanban SAAS built with Next.js14. It provides a seamless and intuit
 
 The development of the Taskify is currently in progress. Feel free to check back for updates on new features and improvements.
 
-## Key Features:
+## Features:
 - ✅ Auth 
 - ✅ Organizations / Workspaces
 - ✅ Board creation
