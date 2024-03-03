@@ -8,13 +8,12 @@ Taskify is a Task Management App built with Next.js14. It provides a seamless an
 - **Tailwind CSS**: Utility-first CSS framework for styling. [https://tailwindcss.com/](https://tailwindcss.com/)
 - **Shadcn Ui**: Open-Source library with Pre-built and customizable components for the UI. [https://ui.shadcn.com/](https://ui.shadcn.com/)
 - **Clerk**: User management library that serves UI's and API's for authentication.  [https://clerk.com/](https://clerk.com/)
-- **Stripe**: A plug and play payment service for web apps.
 
   
 ## Status
-**IN PROGRESS**
+**COMPLETED**
 
-The development of the Taskify is currently in progress. Feel free to check back for updates on new features and improvements.
+The development of the Taskify is currently is completed for now. Soon will be deployed and the link will be available here.
 
 ## Features:
 - ✅ Auth 
