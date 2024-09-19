@@ -58,28 +58,28 @@ export const Sidebar = ({storageKey="t-sidebar-state"}: sidebarProps) => {
 
     return (
         <>
-        <div className="font-medium text-xs flex items-center mb-1">
-            <span className="pl-4">Workspaces</span>
-            <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
-                <Link href="/select-org">
-                    <Plus className="w-4 h-4" />
-                </Link>
-            </Button>
-        </div>
-        <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
-        {userMemberships.data.map((raw => {
-            const organization = raw.organization
-            return (
-                <NavItem
-                key={organization.id}
-                isActive={activeOrganization?.id === organization.id}
-                isExpanded={expanded[organization.id]}
-                organization={organization as Organization}
-                onExpand={onExpand}
-                />
-            )
-        }))}
-        </Accordion>
+            <div className="font-medium text-xs flex items-center mb-1">
+                <span className="pl-4">Workspaces</span>
+                <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
+                    <Link href="/select-org">
+                        <Plus className="w-4 h-4" />
+                    </Link>
+                </Button>
+            </div>
+            <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
+                {userMemberships.data.map((raw => {
+                    const organization = raw.organization
+                    return (
+                        <NavItem
+                        key={organization.id}
+                        isActive={activeOrganization?.id === organization.id}
+                        isExpanded={expanded[organization.id]}
+                        organization={organization as Organization}
+                        onExpand={onExpand}
+                        />
+                    )
+                }))}
+            </Accordion>
         </>
     )
 }

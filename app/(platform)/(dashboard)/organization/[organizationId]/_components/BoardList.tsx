@@ -45,10 +45,10 @@ export const BoardList = async () => {
             ))}
                 <FormPopover side="right" sideOffset={10}>
                     <div className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 justify-center hover:opacity-75 transition items-center" role="button">
-                        <p className="text-sm">Create new board</p>
+                        <p className="text-sm">Create new board!</p>
                         <span className="text-xs">
                             {/* 5 remaining */}
-                            for free!
+                            {/* for free! */}
                         </span>
                         {/* <Hint sideOffset={40} description={`Free Workspaces can have up to 5 open boards. For unlimited boards, upgrade this workspace`}>
                             <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />

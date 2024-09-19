@@ -13,11 +13,11 @@ export const Navbar = () => {
                         Login
                         </Link>
                     </Button>
-                    <Button size="sm" asChild>
+                    {/* <Button size="sm" asChild>
                         <Link href="/sign-up">
                         Get Taskify for free
                         </Link>
-                    </Button>
+                    </Button> */}
                 </div>
             </div>
         </div>
