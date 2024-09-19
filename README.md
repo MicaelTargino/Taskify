@@ -2,6 +2,10 @@
 
 Taskify is a Task Management App built with Next.js14. It provides a seamless and intuitive experience for managing tasks and collaborating with your team.
 
+## Checkout demo
+
+Click the link to use Taskify: [https://taskify.targino.dev](https://taskify.targino.dev)
+
 ## Technologies Used
 
 - **Next.js**: React framework for building server-rendered applications. [https://nextjs.org/](https://nextjs.org/)
@@ -12,8 +16,6 @@ Taskify is a Task Management App built with Next.js14. It provides a seamless an
   
 ## Status
 **COMPLETED**
-
-The development of the Taskify is currently is completed for now. Soon will be deployed and the link will be available here.
 
 ## Features:
 - ✅ Auth 
