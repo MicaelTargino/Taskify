@@ -16,7 +16,13 @@ import {
   import { SelectUser } from "./_components/selectUser";
 
 
-export function AssignUser({assignedUserId ,cardId, membershipList}: {assignedUserId: any, cardId: string, membershipList: any}) {
+  interface AssignUserComponent extends React.FC<{assignedUserId: any, cardId: string, membershipList: any}> {
+    Skeleton: React.FC;
+    displayName?: string;
+  }
+  
+
+export const  AssignUser: AssignUserComponent = ({assignedUserId ,cardId, membershipList}: {assignedUserId: any, cardId: string, membershipList: any}) => {
     return (
       <div className="w-full flex items-center justify-start gap-1">
             <User className="w-5 h-5 text-neutral-700" />
@@ -43,5 +49,5 @@ AssignUser.Skeleton = function() {
     )
 }
 
-// // Add displayName to AssignUser.Skeleton component
-// AssignUser.Skeleton.displayName = "AssignUserSkeleton";
+// Add displayName to AssignUser.Skeleton component
+AssignUser.Skeleton.displayName = "AssignUserSkeleton";
