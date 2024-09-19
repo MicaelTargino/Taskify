@@ -56,7 +56,7 @@ export const CardItem = ({
           {membershipList?.map((user:any) => {
             if (user.publicUserData.userId == data.assignedUserId) {
               return (
-                <div className="w-[36px] h-[36px] rounded-full overflow-hidden">
+                <div key={user.publicUserData.userID} className="w-[36px] h-[36px] rounded-full overflow-hidden">
                   <Image width='36' height='36' src={user.publicUserData.imageUrl} alt="assigned user logo"  />
                 </div>
               )

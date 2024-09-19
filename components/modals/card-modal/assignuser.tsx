@@ -15,7 +15,7 @@ import {
   import { Skeleton } from "@/components/ui/skeleton";
   import { SelectUser } from "./_components/selectUser";
 
-  
+
 export function AssignUser({assignedUserId ,cardId, membershipList}: {assignedUserId: any, cardId: string, membershipList: any}) {
     return (
       <div className="w-full flex items-center justify-start gap-1">
@@ -28,6 +28,9 @@ export function AssignUser({assignedUserId ,cardId, membershipList}: {assignedUs
     )
 }
 
+// Add displayName to AssignUser component
+AssignUser.displayName = "AssignUser";
+
 AssignUser.Skeleton = function() {
     return (
         <div className="flex items-start gap-x-3 mb-6">
@@ -39,3 +42,6 @@ AssignUser.Skeleton = function() {
       </div>
     )
 }
+
+// // Add displayName to AssignUser.Skeleton component
+// AssignUser.Skeleton.displayName = "AssignUserSkeleton";
