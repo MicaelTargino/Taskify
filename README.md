@@ -1,6 +1,6 @@
 # Taskify
 
-Taskify is a Kanban SAAS built with Next.js14. It provides a seamless and intuitive experience for managing tasks.
+Taskify is a Task Management App built with Next.js14. It provides a seamless and intuitive experience for managing tasks and collaborating with your team.
 
 ## Technologies Used
 
@@ -8,15 +8,14 @@ Taskify is a Kanban SAAS built with Next.js14. It provides a seamless and intuit
 - **Tailwind CSS**: Utility-first CSS framework for styling. [https://tailwindcss.com/](https://tailwindcss.com/)
 - **Shadcn Ui**: Open-Source library with Pre-built and customizable components for the UI. [https://ui.shadcn.com/](https://ui.shadcn.com/)
 - **Clerk**: User management library that serves UI's and API's for authentication.  [https://clerk.com/](https://clerk.com/)
-- **Stripe**: A plug and play payment service for web apps.
 
   
 ## Status
-**IN PROGRESS**
+**COMPLETED**
 
-The development of the Taskify is currently in progress. Feel free to check back for updates on new features and improvements.
+The development of the Taskify is currently is completed for now. Soon will be deployed and the link will be available here.
 
-## Key Features:
+## Features:
 - ✅ Auth 
 - ✅ Organizations / Workspaces
 - ✅ Board creation
@@ -36,7 +35,7 @@ The development of the Taskify is currently in progress. Feel free to check back
 - ✅ shadcnUI & TailwindCSS
 - ✅ Pomodoro
 - ✅ Assign collaborators to workspaces
-- Add deadline to tasks
+- ✅ Add deadline to tasks
 
 ## Getting Started
 
