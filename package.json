@@ -30,6 +30,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.293.0",
     "next": "^14.0.3",
+    "pg": "^8.13.0",
     "react": "^18",
     "react-day-picker": "^8.10.0",
     "react-dom": "^18",
